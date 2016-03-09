@@ -119,15 +119,22 @@ public class EarthQuakeParser {
 //                couter++;
 //            }
 //        }
-        System.out.println("# quakes = "+list.size());
+//        System.out.println("# quakes = "+list.size());
 
         EarthQuakeClient earthQuakeClient = new EarthQuakeClient();
+        ClosestQuakes closestQuakes = new ClosestQuakes();
+        LargestQuakes largestQuakes = new LargestQuakes();
 //        ArrayList<QuakeEntry> assignment1 = earthQuakeClient.filterByMagnitude(list, 5.0);
 //
 //        for (QuakeEntry loc : assignment1){
 //            System.out.println(loc);
 //        }
 
-        earthQuakeClient.closeToMe();
+        //earthQuakeClient.closeToMe();
+        //earthQuakeClient.quakesOfDepth();
+        //earthQuakeClient.filterByPhrase();
+        //closestQuakes.findClosestQuakes();
+        largestQuakes.findLargestQuakes(source);
+
     }
 }

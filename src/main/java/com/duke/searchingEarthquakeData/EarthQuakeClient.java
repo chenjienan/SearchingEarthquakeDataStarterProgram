@@ -81,5 +81,73 @@ public class EarthQuakeClient {
             System.out.println(qe);
         }
     }
-    
+
+    public ArrayList<QuakeEntry> filterByDepth(ArrayList<QuakeEntry> quakeData, double minDepth, double maxDepth){
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        for(QuakeEntry qe : quakeData){
+            if (qe.getDepth() > minDepth && qe.getDepth() < maxDepth){
+                answer.add(qe);
+            }
+        }
+        return answer;
+    }
+
+    public void quakesOfDepth(){
+        EarthQuakeParser parser = new EarthQuakeParser();
+
+        ClassLoader classLoader = EarthQuakeParser.class.getClassLoader();
+        String source = classLoader.getResource("data/nov20quakedatasmall.atom").getPath();
+
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("read data for "+list.size()+" quakes");
+
+        ArrayList<QuakeEntry> assignment2 = this.filterByDepth(list, -10000.0, -5000.0);
+        for (QuakeEntry loc : assignment2){
+            System.out.println(loc);
+        }
+        System.out.println("Found "+assignment2.size()+ " quakes that match that criteria");
+    }
+
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, String where, String phrase){
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+
+        if (where.equals("any")){
+            for (QuakeEntry qe : quakeData) {
+                if (qe.getInfo().contains(phrase)){
+                    answer.add(qe);
+                }
+            }
+        }
+        else if (where.equals("start")){
+            for (QuakeEntry qe : quakeData) {
+                if (qe.getInfo().startsWith(phrase)){
+                    answer.add(qe);
+                }
+            }
+        }
+        else if (where.equals("end")){
+            for (QuakeEntry qe : quakeData) {
+                if (qe.getInfo().endsWith(phrase)){
+                    answer.add(qe);
+                }
+            }
+        }
+        return answer;
+    }
+
+    public void filterByPhrase(){
+        EarthQuakeParser parser = new EarthQuakeParser();
+
+        ClassLoader classLoader = EarthQuakeParser.class.getClassLoader();
+        String source = classLoader.getResource("data/nov20quakedatasmall.atom").getPath();
+
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("read data for "+list.size()+" quakes");
+
+        ArrayList<QuakeEntry> assignment3 = this.filterByPhrase(list, "any", "Can");
+        for (QuakeEntry loc : assignment3){
+            System.out.println(loc);
+        }
+        System.out.println("Found "+assignment3.size()+ " quakes that match that criteria");
+    }
 }
