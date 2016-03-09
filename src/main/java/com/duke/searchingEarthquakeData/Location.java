@@ -25,6 +25,7 @@
  * are Android specific so that the file compiles and can be used
  * outside of Android. Also added constructor with Latitude and Longitude.
  */
+package com.duke.searchingEarthquakeData;
 
 import java.text.DecimalFormat;
 import java.util.StringTokenizer;

@@ -4,8 +4,9 @@
  * @author Duke Software/Learn to Program
  * @version 1.0, November 2015
  */
+package com.duke.searchingEarthquakeData;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class ClosestQuakes {
     public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany) {

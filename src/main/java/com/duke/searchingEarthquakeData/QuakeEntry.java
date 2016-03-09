@@ -1,3 +1,5 @@
+package com.duke.searchingEarthquakeData;
+
 public class QuakeEntry implements Comparable<QuakeEntry> {
     private Location myLocation;
     private String title;

@@ -1,3 +1,5 @@
+package com.duke.searchingEarthquakeData;
+
 import java.util.ArrayList;
 
 public class EarthQuakeClient {
