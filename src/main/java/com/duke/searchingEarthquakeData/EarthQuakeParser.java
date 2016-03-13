@@ -108,7 +108,7 @@ public class EarthQuakeParser {
 
         ClassLoader classLoader = EarthQuakeParser.class.getClassLoader();
         //String source = classLoader.getResource("data/nov20quakedata.atom").getPath();
-        String source = classLoader.getResource("data/nov20quakedatasmall.atom").getPath();
+        String source = classLoader.getResource("data/nov20quakedata.atom").getPath();
 
         ArrayList<QuakeEntry> list  = xp.read(source);
         Collections.sort(list);
@@ -124,8 +124,9 @@ public class EarthQuakeParser {
         EarthQuakeClient earthQuakeClient = new EarthQuakeClient();
         ClosestQuakes closestQuakes = new ClosestQuakes();
         LargestQuakes largestQuakes = new LargestQuakes();
-//        ArrayList<QuakeEntry> assignment1 = earthQuakeClient.filterByMagnitude(list, 5.0);
-//
+
+//        ArrayList<QuakeEntry> assignment1 = earthQuakeClient.filterByPhrase(list, "any", "Creek");
+//        System.out.println(assignment1.size());
 //        for (QuakeEntry loc : assignment1){
 //            System.out.println(loc);
 //        }
